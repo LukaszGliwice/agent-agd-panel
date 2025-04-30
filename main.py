@@ -74,6 +74,8 @@ def stop_zlecenie(zlecenie_id: int):
 def generuj_rachunek(zlecenie_id: int):
     import sqlite3
     from jinja2 import Environment, FileSystemLoader
+    ...
+    return FileResponse(path=pdf_path, filename=pdf_path, media_type='application/pdf')
 
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
