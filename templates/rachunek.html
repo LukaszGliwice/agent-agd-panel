@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Rachunek AGD</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #1e88e5; }
+        .info { margin-top: 20px; }
+        .legal { margin-top: 40px; font-size: 0.9em; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>Rachunek nr {{ numer }}</h1>
+    <div class="info">
+        <p><strong>Data:</strong> {{ data }}</p>
+        <p><strong>Klient:</strong> {{ imie }} – {{ telefon }}</p>
+        <p><strong>Adres:</strong> {{ adres }}</p>
+        <p><strong>Sprzęt:</strong> {{ urzadzenie }}</p>
+        <p><strong>Opis usterki:</strong> {{ usterka }}</p>
+        <p><strong>Kwota:</strong> {{ kwota }} zł</p>
+    </div>
+    <div class="legal">
+        Rachunek wystawiony w ramach działalności nierejestrowanej.<br>
+        Zgodnie z art. 5 ustawy Prawo przedsiębiorców. Sprzedawca nie jest płatnikiem VAT.<br>
+        Rachunek wystawiany wyłącznie na życzenie klienta.
+    </div>
+</body>
+</html>
