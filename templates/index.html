@@ -3,54 +3,44 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Agent AGD – Naprawa AGD Gliwice</title>
+  <title>Agent AGD – Naprawa pralek, zmywarek, piekarników | Gliwice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f6f9; color: #222; }
-    header { background: #001f4d; color: white; padding: 60px 20px 40px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: relative; }
-    header img.logo { height: 80px; margin-bottom: 20px; }
-    header h1 { font-size: 2.8em; margin-bottom: 10px; }
-    header p { font-size: 1.2em; margin: 0.3em 0; }
-    .phone { color: #ffcc00; font-weight: bold; text-decoration: none; }
+    header { background: #002d5c; color: white; text-align: center; padding: 60px 20px 40px; }
+    header img { height: 90px; margin-bottom: 15px; }
+    header h1 { font-size: 2.6em; margin: 0; }
+    header p { font-size: 1.2em; margin: 0.4em 0; }
+    .phone { color: #ffcc00; font-weight: bold; font-size: 1.3em; text-decoration: none; }
+
     .container { max-width: 1100px; margin: auto; padding: 30px 20px; }
-    section { background: white; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); padding: 40px; margin-bottom: 40px; }
-    h2 { color: #001f4d; margin-bottom: 20px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-    th, td { border: 1px solid #ccc; padding: 14px; text-align: left; font-size: 1.05em; }
+    section { background: white; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 40px; }
+    h2 { color: #002d5c; margin-bottom: 20px; font-size: 1.8em; text-align: center; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 25px; }
+    th, td { border: 1px solid #ccc; padding: 14px; text-align: left; font-size: 1em; }
     th { background: #f0f2f5; }
-    form input, form textarea, form button { width: 100%; padding: 14px; margin-top: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; }
-    form button { background: #003366; color: white; border: none; cursor: pointer; font-weight: bold; }
-    form button:hover { background: #002244; }
-    .gallery img { max-width: 240px; border-radius: 12px; margin: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+
+    .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .gallery img { width: 300px; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
     .gallery img:hover { transform: scale(1.05); }
-    .gallery { display: flex; flex-wrap: wrap; justify-content: center; }
-    .opinie { font-style: italic; margin: 10px 0; border-left: 4px solid #003366; padding-left: 14px; color: #444; background: #f9f9f9; border-radius: 6px; }
-    footer { text-align: center; padding: 30px; color: #888; font-size: 0.95em; background: #f1f3f5; border-top: 2px solid #ddd; }
-    .grid-icons { display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px; }
-    .grid-icons div { text-align: center; margin: 20px; max-width: 200px; }
-    .grid-icons img { height: 64px; margin-bottom: 10px; }
+
+    .opinie { background: #f9f9f9; padding: 20px; border-left: 4px solid #002d5c; font-style: italic; border-radius: 8px; margin: 15px 0; }
+
+    footer { text-align: center; padding: 30px; font-size: 0.9em; background: #e6e9ec; color: #555; }
   </style>
 </head>
 <body>
 
 <header>
-  <img class="logo" src="https://img.icons8.com/ios-filled/100/ffffff/maintenance.png" alt="Logo Agent AGD" />
+  <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/100/ffffff/external-wrench-electricity-flatart-icons-outline-flatarticons.png" alt="Logo AGD" />
   <h1>Agent AGD</h1>
-  <p>Naprawa pralek, zmywarek, suszarek, piekarników – szybko, uczciwie i lokalnie</p>
-  <p>Zadzwoń lub wyślij SMS: <a class="phone" href="tel:510506496">510-506-496</a></p>
+  <p>Naprawa pralek, zmywarek, suszarek, piekarników</p>
+  <p><a class="phone" href="tel:510506496">510-506-496</a></p>
+  <p>Wyślij SMS z adresem i typem sprzętu – oddzwonię szybko</p>
 </header>
 
 <div class="container">
-
-  <section>
-    <h2>Dlaczego Agent AGD?</h2>
-    <div class="grid-icons">
-      <div><img src="https://img.icons8.com/ios/100/washing-machine.png"/><br>Naprawa pralek</div>
-      <div><img src="https://img.icons8.com/ios/100/dishwasher.png"/><br>Naprawa zmywarek</div>
-      <div><img src="https://img.icons8.com/ios/100/heating-room.png"/><br>Naprawa suszarek</div>
-      <div><img src="https://img.icons8.com/ios/100/oven.png"/><br>Naprawa piekarników</div>
-    </div>
-  </section>
 
   <section>
     <h2>Cennik usług</h2>
@@ -67,25 +57,25 @@
   </section>
 
   <section>
-    <h2>Opinie klientów</h2>
-    <div class="opinie">"Profesjonalnie, konkretnie i z kulturą – dziękuję!" – Joanna, Gliwice</div>
-    <div class="opinie">"Po prostu fachowiec – polecam z czystym sumieniem." – Marek, Zabrze</div>
-    <div class="opinie">"Uczciwie i bez naciągania, jak być powinno." – Karolina, Knurów</div>
+    <h2>Galeria z napraw</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200?text=Pralka+naprawiona" alt="Naprawiona pralka">
+      <img src="https://via.placeholder.com/300x200?text=Moduł+zmywarki" alt="Moduł zmywarki">
+      <img src="https://via.placeholder.com/300x200?text=Piekarnik+OK" alt="Naprawiony piekarnik">
+    </div>
   </section>
 
   <section>
-    <h2>Galeria zdjęć z napraw</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/240x160?text=Naprawiona+pralka" alt="pralka">
-      <img src="https://via.placeholder.com/240x160?text=Moduł+zmywarki" alt="zmywarka">
-      <img src="https://via.placeholder.com/240x160?text=Piekarnik+OK" alt="piekarnik">
-    </div>
+    <h2>Opinie klientów</h2>
+    <div class="opinie">"Pełna profeska. Pralka działa jak nowa. Polecam!"</div>
+    <div class="opinie">"Szybko, uczciwie i z kontaktem bez call center. Dziękuję!"</div>
+    <div class="opinie">"Wszystko jasno i bez naciągania. Dobry fachowiec!"</div>
   </section>
 
 </div>
 
 <footer>
-  © 2025 Agent AGD – Gliwice. Działalność nierejestrowana. Rachunek na życzenie. Nie jestem płatnikiem VAT.
+  © 2025 Agent AGD – Gliwice. Działalność nierejestrowana. Nie jestem płatnikiem VAT. Rachunek na życzenie.
 </footer>
 
 </body>
