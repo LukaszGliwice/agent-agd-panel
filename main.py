@@ -1,20 +1,17 @@
-from fastapi.responses import FileResponse
-from fastapi.templating import Jinja2Templates
-from utils import generuj_numer_rachunku, generuj_pdf
-from datetime import datetime
-
 from fastapi import FastAPI, Request, Form
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
 import sqlite3
 import datetime
+from jinja2 import Environment, FileSystemLoader
+from utils import generuj_numer_rachunku, generuj_pdf
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
-
 DATABASE = "database.db"
 
+
+# Inicjalizacja bazy danych
 def init_db():
     with sqlite3.connect(DATABASE) as conn:
         c = conn.cursor()
@@ -26,14 +23,17 @@ def init_db():
             adres TEXT,
             urzadzenie TEXT,
             usterka TEXT,
+            kwota TEXT,
             start_time TEXT,
             end_time TEXT,
             status TEXT DEFAULT "Nowe"
         )''')
         conn.commit()
 
+
 init_db()
 
+# Strona główna zleceń
 @app.get("/", response_class=HTMLResponse)
 def read_root(request: Request):
     with sqlite3.connect(DATABASE) as conn:
@@ -42,17 +42,19 @@ def read_root(request: Request):
         zlecenia = c.fetchall()
     return templates.TemplateResponse("index.html", {"request": request, "zlecenia": zlecenia})
 
+# Dodawanie zlecenia
 @app.post("/api/zgloszenie")
 def zgloszenie(imie: str = Form(...), telefon: str = Form(...), adres: str = Form(...),
-               urzadzenie: str = Form(...), usterka: str = Form(...)):
+               urzadzenie: str = Form(...), usterka: str = Form(...), kwota: str = Form(...)):
     with sqlite3.connect(DATABASE) as conn:
         c = conn.cursor()
-        c.execute("INSERT INTO zlecenia (imie, telefon, adres, urzadzenie, usterka, start_time, end_time) VALUES (?, ?, ?, ?, ?, '', '')",
-                  (imie, telefon, adres, urzadzenie, usterka))
+        c.execute("INSERT INTO zlecenia (imie, telefon, adres, urzadzenie, usterka, kwota, start_time, end_time) VALUES (?, ?, ?, ?, ?, ?, '', '')",
+                  (imie, telefon, adres, urzadzenie, usterka, kwota))
         conn.commit()
-    print(f"SMS TEST: Nowe zlecenie od {imie}, tel: {telefon}, sprzęt: {urzadzenie}")
+    print(f"Nowe zlecenie: {urzadzenie} - {imie}")
     return {"status": "success"}
 
+# Start zlecenia
 @app.post("/api/start/{zlecenie_id}")
 def start_zlecenie(zlecenie_id: int):
     now = datetime.datetime.now().isoformat()
@@ -62,6 +64,7 @@ def start_zlecenie(zlecenie_id: int):
         conn.commit()
     return {"status": "started"}
 
+# Stop zlecenia
 @app.post("/api/stop/{zlecenie_id}")
 def stop_zlecenie(zlecenie_id: int):
     now = datetime.datetime.now().isoformat()
@@ -70,14 +73,11 @@ def stop_zlecenie(zlecenie_id: int):
         c.execute("UPDATE zlecenia SET end_time = ?, status = 'Zakończone' WHERE id = ?", (now, zlecenie_id))
         conn.commit()
     return {"status": "stopped"}
+
+# Generowanie rachunku PDF
 @app.get("/api/rachunek/{zlecenie_id}", response_class=FileResponse)
 def generuj_rachunek(zlecenie_id: int):
-    import sqlite3
-    from jinja2 import Environment, FileSystemLoader
-    from datetime import datetime
-    from utils import generuj_numer_rachunku, generuj_pdf
-
-    conn = sqlite3.connect("database.db")
+    conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM zlecenia WHERE id = ?", (zlecenie_id,))
     zlecenie = cursor.fetchone()
@@ -89,13 +89,13 @@ def generuj_rachunek(zlecenie_id: int):
     numer = generuj_numer_rachunku(zlecenie_id)
     dane = {
         "numer": numer,
-        "data": datetime.now().strftime("%Y-%m-%d"),
+        "data": datetime.datetime.now().strftime("%Y-%m-%d"),
         "imie": zlecenie[1],
         "telefon": zlecenie[2],
         "adres": zlecenie[3],
         "urzadzenie": zlecenie[4],
         "usterka": zlecenie[5],
-        "kwota": zlecenie[9] if len(zlecenie) > 9 else "250"
+        "kwota": zlecenie[6] or "250"
     }
 
     env = Environment(loader=FileSystemLoader("templates"))
@@ -109,5 +109,3 @@ def generuj_rachunek(zlecenie_id: int):
     generuj_pdf("rachunek_temp.html", pdf_path)
 
     return FileResponse(path=pdf_path, filename=pdf_path, media_type='application/pdf')
-
-
