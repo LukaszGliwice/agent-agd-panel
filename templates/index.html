@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f6f9; color: #222; }
-    header { background: #001f4d; color: white; padding: 70px 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-    header h1 { font-size: 3em; margin-bottom: 10px; }
+    header { background: #001f4d; color: white; padding: 60px 20px 40px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: relative; }
+    header img.logo { height: 80px; margin-bottom: 20px; }
+    header h1 { font-size: 2.8em; margin-bottom: 10px; }
     header p { font-size: 1.2em; margin: 0.3em 0; }
     .phone { color: #ffcc00; font-weight: bold; text-decoration: none; }
     .container { max-width: 1100px; margin: auto; padding: 30px 20px; }
@@ -25,14 +26,15 @@
     .gallery { display: flex; flex-wrap: wrap; justify-content: center; }
     .opinie { font-style: italic; margin: 10px 0; border-left: 4px solid #003366; padding-left: 14px; color: #444; background: #f9f9f9; border-radius: 6px; }
     footer { text-align: center; padding: 30px; color: #888; font-size: 0.95em; background: #f1f3f5; border-top: 2px solid #ddd; }
-    .grid-icons { display: flex; justify-content: space-between; flex-wrap: wrap; }
-    .grid-icons div { flex: 1 1 200px; text-align: center; margin: 10px; }
+    .grid-icons { display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px; }
+    .grid-icons div { text-align: center; margin: 20px; max-width: 200px; }
     .grid-icons img { height: 64px; margin-bottom: 10px; }
   </style>
 </head>
 <body>
 
 <header>
+  <img class="logo" src="https://img.icons8.com/ios-filled/100/ffffff/maintenance.png" alt="Logo Agent AGD" />
   <h1>Agent AGD</h1>
   <p>Naprawa pralek, zmywarek, suszarek, piekarników – szybko, uczciwie i lokalnie</p>
   <p>Zadzwoń lub wyślij SMS: <a class="phone" href="tel:510506496">510-506-496</a></p>
@@ -41,12 +43,12 @@
 <div class="container">
 
   <section>
-    <h2>Dlaczego klienci wybierają mnie?</h2>
+    <h2>Dlaczego Agent AGD?</h2>
     <div class="grid-icons">
-      <div><img src="https://img.icons8.com/ios-filled/100/000000/washing-machine.png"/><br>Naprawa u klienta</div>
-      <div><img src="https://img.icons8.com/ios-filled/100/000000/cost.png"/><br>Bez ukrytych kosztów</div>
-      <div><img src="https://img.icons8.com/ios-filled/100/000000/phone.png"/><br>Szybki kontakt</div>
-      <div><img src="https://img.icons8.com/ios-filled/100/000000/user.png"/><br>Bez pośredników</div>
+      <div><img src="https://img.icons8.com/ios/100/washing-machine.png"/><br>Naprawa pralek</div>
+      <div><img src="https://img.icons8.com/ios/100/dishwasher.png"/><br>Naprawa zmywarek</div>
+      <div><img src="https://img.icons8.com/ios/100/heating-room.png"/><br>Naprawa suszarek</div>
+      <div><img src="https://img.icons8.com/ios/100/oven.png"/><br>Naprawa piekarników</div>
     </div>
   </section>
 
@@ -55,37 +57,13 @@
     <table>
       <tr><th>Usługa</th><th>Cena</th><th>Opis</th></tr>
       <tr><td>Diagnoza + dojazd</td><td>120 zł</td><td>Wliczona w koszt naprawy, jeśli wykonana</td></tr>
-      <tr><td>Naprawa pralki</td><td>od 250 zł</td><td>Wymiana łożysk, pompy, elektrozaworu</td></tr>
-      <tr><td>Naprawa zmywarki</td><td>od 250 zł</td><td>Problemy z odpływem, elektroniką, grzaniem</td></tr>
-      <tr><td>Naprawa suszarki</td><td>od 250 zł</td><td>Czyszczenie, wymiana czujników, grzałek</td></tr>
-      <tr><td>Naprawa piekarnika</td><td>od 100 zł</td><td>Grzałka, zegar, termostat – indywidualna wycena</td></tr>
+      <tr><td>Naprawa pralki</td><td>do 250 zł</td><td>Wymiana łożysk, pompy, elektrozaworu</td></tr>
+      <tr><td>Naprawa zmywarki</td><td>do 250 zł</td><td>Problemy z odpływem, elektroniką, grzaniem</td></tr>
+      <tr><td>Naprawa suszarki</td><td>do 250 zł</td><td>Czyszczenie, wymiana czujników, grzałek</td></tr>
+      <tr><td>Naprawa piekarnika</td><td>od 100 zł</td><td>Grzałka, zegar, termostat itd</td></tr>
       <tr><td>Hydraulika</td><td>od 100 zł</td><td>Uszczelki, zawory, podłączenia – indywidualnie</td></tr>
-      <tr><td>Dalszy dojazd</td><td>+30 zł</td><td>Dotyczy lokalizacji poza Gliwicami</td></tr>
+      <tr><td>Dalszy dojazd</td><td>+30 zł</td><td>Dotyczy dalszych lokalizacji</td></tr>
     </table>
-    <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
-      Ceny nie zawierają części – sprowadzane są tylko na życzenie klienta. Wymiana łożysk: od 300 do 400 zł.
-    </p>
-  </section>
-
-  <section>
-    <h2>Formularz zgłoszeniowy</h2>
-    <form action="/api/zgloszenie" method="post">
-      <input type="text" name="imie" placeholder="Imię" required>
-      <input type="text" name="telefon" placeholder="Telefon" required>
-      <input type="text" name="adres" placeholder="Adres" required>
-      <input type="text" name="urzadzenie" placeholder="Typ urządzenia" required>
-      <textarea name="usterka" placeholder="Opis usterki" required></textarea>
-      <button type="submit">Wyślij zgłoszenie</button>
-    </form>
-  </section>
-
-  <section>
-    <h2>Galeria zdjęć z napraw</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/240x160?text=Pralka+po+naprawie" alt="naprawiona pralka">
-      <img src="https://via.placeholder.com/240x160?text=Moduł+Zmywarki" alt="moduł zmywarki">
-      <img src="https://via.placeholder.com/240x160?text=Piekarnik+OK" alt="serwis piekarnika">
-    </div>
   </section>
 
   <section>
@@ -93,6 +71,15 @@
     <div class="opinie">"Profesjonalnie, konkretnie i z kulturą – dziękuję!" – Joanna, Gliwice</div>
     <div class="opinie">"Po prostu fachowiec – polecam z czystym sumieniem." – Marek, Zabrze</div>
     <div class="opinie">"Uczciwie i bez naciągania, jak być powinno." – Karolina, Knurów</div>
+  </section>
+
+  <section>
+    <h2>Galeria zdjęć z napraw</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/240x160?text=Naprawiona+pralka" alt="pralka">
+      <img src="https://via.placeholder.com/240x160?text=Moduł+zmywarki" alt="zmywarka">
+      <img src="https://via.placeholder.com/240x160?text=Piekarnik+OK" alt="piekarnik">
+    </div>
   </section>
 
 </div>
