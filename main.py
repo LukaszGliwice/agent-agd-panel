@@ -148,4 +148,43 @@ def generuj_rachunek(zlecenie_id: int):
     generuj_pdf("rachunek_temp.html", pdf_path)
 
     return FileResponse(path=pdf_path, filename=pdf_path, media_type='application/pdf')
+@app.get("/api/rachunek/{zlecenie_id}", response_class=FileResponse)
+def generuj_rachunek(zlecenie_id: int):
+    import sqlite3
+    from jinja2 import Environment, FileSystemLoader
+    from datetime import datetime
+    from utils import generuj_numer_rachunku, generuj_pdf
+
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM zlecenia WHERE id = ?", (zlecenie_id,))
+    zlecenie = cursor.fetchone()
+    conn.close()
+
+    if not zlecenie:
+        return {"error": "Nie znaleziono zlecenia"}
+
+    numer = generuj_numer_rachunku(zlecenie_id)
+    dane = {
+        "numer": numer,
+        "data": datetime.now().strftime("%Y-%m-%d"),
+        "imie": zlecenie[1],
+        "telefon": zlecenie[2],
+        "adres": zlecenie[3],
+        "urzadzenie": zlecenie[4],
+        "usterka": zlecenie[5],
+        "kwota": zlecenie[9] if len(zlecenie) > 9 else "250"
+    }
+
+    env = Environment(loader=FileSystemLoader("templates"))
+    template = env.get_template("rachunek.html")
+    html_output = template.render(dane)
+
+    with open("rachunek_temp.html", "w", encoding="utf-8") as f:
+        f.write(html_output)
+
+    pdf_path = f"rachunek_{numer}.pdf"
+    generuj_pdf("rachunek_temp.html", pdf_path)
+
+    return FileResponse(path=pdf_path, filename=pdf_path, media_type='application/pdf')
 
