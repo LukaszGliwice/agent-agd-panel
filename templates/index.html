@@ -3,25 +3,65 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Panel Agenta AGD</title>
+    <title>Agent AGD – Naprawa sprzętu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+        header { background: #0d47a1; color: white; padding: 2em; text-align: center; }
+        header h1 { margin: 0; font-size: 2em; }
+        header p { font-size: 1.2em; margin-top: 0.5em; }
+        section { padding: 2em; max-width: 900px; margin: auto; background: white; margin-top: 1em; border-radius: 12px; }
+        h2 { color: #0d47a1; border-bottom: 2px solid #eee; padding-bottom: 0.3em; }
+        .cennik table { width: 100%; border-collapse: collapse; margin-top: 1em; }
+        .cennik th, .cennik td { border: 1px solid #ccc; padding: 0.5em; text-align: left; }
+        footer { text-align: center; padding: 1em; font-size: 0.9em; color: #777; margin-top: 2em; }
+    </style>
 </head>
 <body>
-    <h1>Panel zleceń AGD</h1>
-    <table border="1">
-        <tr><th>ID</th><th>Imię</th><th>Telefon</th><th>Sprzęt</th><th>Status</th><th>Akcje</th></tr>
-        {% for z in zlecenia %}
-        <tr>
-            <td>{{ z[0] }}</td>
-            <td>{{ z[1] }}</td>
-            <td>{{ z[2] }}</td>
-            <td>{{ z[4] }}</td>
-            <td>{{ z[8] }}</td>
-            <td>
-                <form action="/api/start/{{ z[0] }}" method="post"><button type="submit">Start</button></form>
-                <form action="/api/stop/{{ z[0] }}" method="post"><button type="submit">Stop</button></form>
-            </td>
-        </tr>
-        {% endfor %}
+
+<header>
+    <h1>Agent AGD</h1>
+    <p>Naprawa pralek, zmywarek, suszarek, piekarników</p>
+    <p><strong>Zadzwoń: <a href="tel:510506496" style="color:#ffeb3b;">510-506-496</a></strong></p>
+    <p>Wyślij SMS z adresem i typem sprzętu – oddzwonię szybko</p>
+</header>
+
+<section>
+    <h2>O mnie</h2>
+    <p>Nazywam się Łukasz Pawlonka – lokalny fachowiec z Gliwic i okolic.</p>
+    <p>Stawiam na uczciwość, szybki kontakt, brak pośredników i konkretne ceny.</p>
+    <p>Kontaktujesz się bezpośrednio ze mną – nie przez żadne call center.</p>
+</section>
+
+<section class="cennik">
+    <h2>Cennik</h2>
+    <table>
+        <tr><th>Usługa</th><th>Cena</th></tr>
+        <tr><td>Diagnoza + dojazd</td><td>120 zł</td></tr>
+        <tr><td>Naprawa pralki / zmywarki / suszarki</td><td>od 250 zł</td></tr>
+        <tr><td>Naprawa piekarnika</td><td>indywidualna wycena</td></tr>
+        <tr><td>Hydraulika</td><td>od 100 zł</td></tr>
+        <tr><td>Dalszy dojazd</td><td>+30 zł</td></tr>
     </table>
+    <p style="font-size:0.9em; color:#666; margin-top:1em;">Ceny nie zawierają części – każda wycena jest indywidualna.</p>
+</section>
+
+<section>
+    <h2>Zgłoszenie</h2>
+    <form action="/api/zgloszenie" method="post">
+        <input type="text" name="imie" placeholder="Imię" required><br><br>
+        <input type="text" name="telefon" placeholder="Telefon" required><br><br>
+        <input type="text" name="adres" placeholder="Adres" required><br><br>
+        <input type="text" name="urzadzenie" placeholder="Typ urządzenia" required><br><br>
+        <input type="text" name="usterka" placeholder="Opis usterki" required><br><br>
+        <input type="text" name="kwota" placeholder="Kwota (np. 250)" required><br><br>
+        <button type="submit">Wyślij zgłoszenie</button>
+    </form>
+</section>
+
+<footer>
+    © Agent AGD – Gliwice 2025. Działalność nierejestrowana. Bez VAT.
+</footer>
+
 </body>
 </html>
