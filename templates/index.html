@@ -2,87 +2,103 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>Agent AGD – Naprawa sprzętu AGD</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f6f8; margin: 0; color: #333; }
-        .container { max-width: 960px; margin: auto; padding: 20px; }
-        header { background: linear-gradient(to right, #1e3c72, #2a5298); color: white; text-align: center; padding: 60px 20px; border-radius: 0 0 16px 16px; }
-        header h1 { font-size: 2.8em; margin: 0 0 10px; }
-        header p { font-size: 1.2em; margin: 0.5em 0; }
-        section { background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 30px 20px; margin-top: 30px; }
-        h2 { color: #1e3c72; margin-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        input, textarea, button { width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 1em; }
-        button { background: #1e3c72; color: white; border: none; cursor: pointer; }
-        button:hover { background: #16325c; }
-        footer { text-align: center; padding: 20px; color: #666; margin-top: 40px; font-size: 0.9em; }
-        .gallery img { max-width: 220px; margin: 10px; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; }
-        .opinia { border-bottom: 1px solid #eee; padding: 10px 0; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Agent AGD – Naprawa AGD Gliwice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f6f9; color: #222; }
+    header { background: #001f4d; color: white; padding: 70px 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    header h1 { font-size: 3em; margin-bottom: 10px; }
+    header p { font-size: 1.2em; margin: 0.3em 0; }
+    .phone { color: #ffcc00; font-weight: bold; text-decoration: none; }
+    .container { max-width: 1100px; margin: auto; padding: 30px 20px; }
+    section { background: white; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); padding: 40px; margin-bottom: 40px; }
+    h2 { color: #001f4d; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 14px; text-align: left; font-size: 1.05em; }
+    th { background: #f0f2f5; }
+    form input, form textarea, form button { width: 100%; padding: 14px; margin-top: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; }
+    form button { background: #003366; color: white; border: none; cursor: pointer; font-weight: bold; }
+    form button:hover { background: #002244; }
+    .gallery img { max-width: 240px; border-radius: 12px; margin: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+    .gallery img:hover { transform: scale(1.05); }
+    .gallery { display: flex; flex-wrap: wrap; justify-content: center; }
+    .opinie { font-style: italic; margin: 10px 0; border-left: 4px solid #003366; padding-left: 14px; color: #444; background: #f9f9f9; border-radius: 6px; }
+    footer { text-align: center; padding: 30px; color: #888; font-size: 0.95em; background: #f1f3f5; border-top: 2px solid #ddd; }
+    .grid-icons { display: flex; justify-content: space-between; flex-wrap: wrap; }
+    .grid-icons div { flex: 1 1 200px; text-align: center; margin: 10px; }
+    .grid-icons img { height: 64px; margin-bottom: 10px; }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Agent AGD</h1>
-    <p>Naprawa pralek, zmywarek, suszarek, piekarników</p>
-    <p><strong>Zadzwoń: <a href="tel:510506496" style="color:#ffeb3b;">510-506-496</a></strong></p>
-    <p>Wyślij SMS z adresem i typem sprzętu – oddzwonię szybko</p>
+  <h1>Agent AGD</h1>
+  <p>Naprawa pralek, zmywarek, suszarek, piekarników – szybko, uczciwie i lokalnie</p>
+  <p>Zadzwoń lub wyślij SMS: <a class="phone" href="tel:510506496">510-506-496</a></p>
 </header>
 
-<main class="container">
-    <section>
-        <h2>O mnie</h2>
-        <p>Nazywam się Łukasz Pawlonka – lokalny fachowiec z Gliwic i okolic. Stawiam na uczciwość, szybki kontakt, brak pośredników i konkretne ceny.</p>
-    </section>
+<div class="container">
 
-    <section>
-        <h2>Cennik</h2>
-        <table>
-            <tr><th>Usługa</th><th>Cena</th><th>Opis</th></tr>
-            <tr><td>Diagnoza + dojazd</td><td>120 zł</td><td>Wliczona w koszt naprawy</td></tr>
-            <tr><td>Pralka / Zmywarka / Suszarka</td><td>od 250 zł</td><td>Naprawa na miejscu</td></tr>
-            <tr><td>Piekarnik</td><td>250–400 zł</td><td>Wymiana grzałki, termostatu itp.</td></tr>
-            <tr><td>Hydraulika</td><td>od 100 zł</td><td>Wymiana zaworów, węży, uszczelek</td></tr>
-            <tr><td>Dalszy dojazd</td><td>+30 zł</td><td>Poza Gliwice</td></tr>
-        </table>
-    </section>
+  <section>
+    <h2>Dlaczego klienci wybierają mnie?</h2>
+    <div class="grid-icons">
+      <div><img src="https://img.icons8.com/ios-filled/100/000000/washing-machine.png"/><br>Naprawa u klienta</div>
+      <div><img src="https://img.icons8.com/ios-filled/100/000000/cost.png"/><br>Bez ukrytych kosztów</div>
+      <div><img src="https://img.icons8.com/ios-filled/100/000000/phone.png"/><br>Szybki kontakt</div>
+      <div><img src="https://img.icons8.com/ios-filled/100/000000/user.png"/><br>Bez pośredników</div>
+    </div>
+  </section>
 
-    <section>
-        <h2>Zgłoszenie naprawy</h2>
-        <form action="/api/zgloszenie" method="post">
-            <input type="text" name="imie" placeholder="Imię" required>
-            <input type="text" name="telefon" placeholder="Telefon" required>
-            <input type="text" name="adres" placeholder="Adres" required>
-            <input type="text" name="urzadzenie" placeholder="Typ urządzenia" required>
-            <textarea name="usterka" placeholder="Opis usterki" required></textarea>
-            <input type="text" name="kwota" placeholder="Kwota (np. 250)" required>
-            <button type="submit">Wyślij zgłoszenie</button>
-        </form>
-    </section>
+  <section>
+    <h2>Cennik usług</h2>
+    <table>
+      <tr><th>Usługa</th><th>Cena</th><th>Opis</th></tr>
+      <tr><td>Diagnoza + dojazd</td><td>120 zł</td><td>Wliczona w koszt naprawy, jeśli wykonana</td></tr>
+      <tr><td>Naprawa pralki</td><td>od 250 zł</td><td>Wymiana łożysk, pompy, elektrozaworu</td></tr>
+      <tr><td>Naprawa zmywarki</td><td>od 250 zł</td><td>Problemy z odpływem, elektroniką, grzaniem</td></tr>
+      <tr><td>Naprawa suszarki</td><td>od 250 zł</td><td>Czyszczenie, wymiana czujników, grzałek</td></tr>
+      <tr><td>Naprawa piekarnika</td><td>od 100 zł</td><td>Grzałka, zegar, termostat – indywidualna wycena</td></tr>
+      <tr><td>Hydraulika</td><td>od 100 zł</td><td>Uszczelki, zawory, podłączenia – indywidualnie</td></tr>
+      <tr><td>Dalszy dojazd</td><td>+30 zł</td><td>Dotyczy lokalizacji poza Gliwicami</td></tr>
+    </table>
+    <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+      Ceny nie zawierają części – sprowadzane są tylko na życzenie klienta. Wymiana łożysk: od 300 do 400 zł.
+    </p>
+  </section>
 
-    <section>
-        <h2>Opinie klientów</h2>
-        <div class="opinia">"Naprawa ekspresowa i bez naciągania. Fachowiec z powołania!" – Anna, Gliwice</div>
-        <div class="opinia">"Szybka diagnoza i naprawa. Sprzęt działa jak nowy." – Krzysztof, Zabrze</div>
-        <div class="opinia">"Nie boi się trudnych przypadków – polecam!" – Ewelina, Pyskowice</div>
-    </section>
+  <section>
+    <h2>Formularz zgłoszeniowy</h2>
+    <form action="/api/zgloszenie" method="post">
+      <input type="text" name="imie" placeholder="Imię" required>
+      <input type="text" name="telefon" placeholder="Telefon" required>
+      <input type="text" name="adres" placeholder="Adres" required>
+      <input type="text" name="urzadzenie" placeholder="Typ urządzenia" required>
+      <textarea name="usterka" placeholder="Opis usterki" required></textarea>
+      <button type="submit">Wyślij zgłoszenie</button>
+    </form>
+  </section>
 
-    <section>
-        <h2>Galeria zdjęć z napraw</h2>
-        <div class="gallery">
-            <img src="https://via.placeholder.com/220x150?text=Pralka" alt="Pralka po naprawie">
-            <img src="https://via.placeholder.com/220x150?text=Zmywarka" alt="Zmywarka zdemontowana">
-            <img src="https://via.placeholder.com/220x150?text=Piekarnik" alt="Piekarnik naprawiony">
-        </div>
-    </section>
-</main>
+  <section>
+    <h2>Galeria zdjęć z napraw</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/240x160?text=Pralka+po+naprawie" alt="naprawiona pralka">
+      <img src="https://via.placeholder.com/240x160?text=Moduł+Zmywarki" alt="moduł zmywarki">
+      <img src="https://via.placeholder.com/240x160?text=Piekarnik+OK" alt="serwis piekarnika">
+    </div>
+  </section>
+
+  <section>
+    <h2>Opinie klientów</h2>
+    <div class="opinie">"Profesjonalnie, konkretnie i z kulturą – dziękuję!" – Joanna, Gliwice</div>
+    <div class="opinie">"Po prostu fachowiec – polecam z czystym sumieniem." – Marek, Zabrze</div>
+    <div class="opinie">"Uczciwie i bez naciągania, jak być powinno." – Karolina, Knurów</div>
+  </section>
+
+</div>
 
 <footer>
-    © Agent AGD – Gliwice 2025. Działalność nierejestrowana. Rachunek na życzenie. Nie jestem płatnikiem VAT.
+  © 2025 Agent AGD – Gliwice. Działalność nierejestrowana. Rachunek na życzenie. Nie jestem płatnikiem VAT.
 </footer>
 
 </body>
