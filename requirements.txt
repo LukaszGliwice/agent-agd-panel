@@ -1,5 +1,5 @@
-
-pdfkit
-
-pdfkit
+fastapi
 uvicorn
+jinja2
+pdfkit
+python-multipart
