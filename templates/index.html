@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Agenta AGD</title>
+</head>
+<body>
+    <h1>Panel zleceń AGD</h1>
+    <table border="1">
+        <tr><th>ID</th><th>Imię</th><th>Telefon</th><th>Sprzęt</th><th>Status</th><th>Akcje</th></tr>
+        {% for z in zlecenia %}
+        <tr>
+            <td>{{ z[0] }}</td>
+            <td>{{ z[1] }}</td>
+            <td>{{ z[2] }}</td>
+            <td>{{ z[4] }}</td>
+            <td>{{ z[8] }}</td>
+            <td>
+                <form action="/api/start/{{ z[0] }}" method="post"><button type="submit">Start</button></form>
+                <form action="/api/stop/{{ z[0] }}" method="post"><button type="submit">Stop</button></form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
