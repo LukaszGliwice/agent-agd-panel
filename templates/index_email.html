@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Panel AGD</title>
+</head>
+<body>
+  <h1>Panel Zgłoszeń AGD</h1>
+  <form method="POST" action="/api/zgloszenie">
+    <input type="text" name="imie" placeholder="Imię klienta" required />
+    <input type="text" name="telefon" placeholder="Telefon" required />
+    <input type="text" name="adres" placeholder="Adres" required />
+    <input type="text" name="urzadzenie" placeholder="Typ urządzenia" required />
+    <input type="text" name="usterka" placeholder="Opis usterki" required />
+    <input type="email" name="email" placeholder="Adres e-mail (opcjonalnie)" />
+    <input type="text" name="kwota" placeholder="Kwota (np. 300)" />
+    <button type="submit">Dodaj zgłoszenie</button>
+  </form>
+  <hr>
+  <h2>Lista zleceń</h2>
+  <ul>
+    {% for z in zlecenia %}
+      <li>
+        {{ z[1] }} – {{ z[4] }} – {{ z[5] }} – Kwota: {{ z[6] }} zł
+        <a href="/api/rachunek/{{ z[0] }}" target="_blank">PDF</a>
+        <a href="/api/wyslij-email/{{ z[0] }}">Wyślij e-mail</a>
+        <a href="/api/wyslij-sms/{{ z[0] }}">Wyślij SMS</a>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
