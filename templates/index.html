@@ -1,29 +1,137 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <title>Panel AGD</title>
+  <meta charset="UTF-8">
+  <title>Agent AGD – Panel Zgłoszeń</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      padding: 20px;
+      color: #2c3e50;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1a252f;
+    }
+    form {
+      background: white;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    form input, form button {
+      padding: 12px;
+      margin: 10px 0;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    form button {
+      background-color: #27ae60;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    form button:hover {
+      background-color: #1e8449;
+    }
+    table {
+      width: 100%;
+      background: white;
+      border-collapse: collapse;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    thead {
+      background-color: #34495e;
+      color: white;
+    }
+    th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .btn {
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9em;
+      color: white;
+      transition: 0.2s;
+    }
+    .btn.pdf { background: #3498db; }
+    .btn.email { background: #2ecc71; }
+    .btn.sms { background: #7f8c8d; }
+    .btn:hover { opacity: 0.9; }
+    @media (max-width: 768px) {
+      th, td { font-size: 0.85em; padding: 10px; }
+      .actions { flex-direction: column; gap: 5px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Panel Zgłoszeń AGD</h1>
+  <h1>📋 Agent AGD – Panel Zgłoszeń</h1>
+
   <form method="POST" action="/api/zgloszenie">
     <input type="text" name="imie" placeholder="Imię klienta" required />
     <input type="text" name="telefon" placeholder="Telefon" required />
     <input type="text" name="adres" placeholder="Adres" required />
     <input type="text" name="urzadzenie" placeholder="Typ urządzenia" required />
     <input type="text" name="usterka" placeholder="Opis usterki" required />
+    <input type="email" name="email" placeholder="Adres e-mail (opcjonalnie)" />
     <input type="text" name="kwota" placeholder="Kwota (np. 300)" />
-    <button type="submit">Dodaj zgłoszenie</button>
+    <input type="date" name="data_wizyty" required />
+    <button type="submit">➕ Dodaj zgłoszenie</button>
   </form>
-  <hr>
-  <h2>Lista zleceń</h2>
-  <ul>
-    {% for z in zlecenia %}
-      <li>
-        {{ z[1] }} – {{ z[4] }} – {{ z[5] }} – Kwota: {{ z[6] }} zł
-        <a href="/api/rachunek/{{ z[0] }}" target="_blank">Wystaw rachunek</a>
-      </li>
-    {% endfor %}
-  </ul>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Imię</th>
+        <th>Telefon</th>
+        <th>Adres</th>
+        <th>Urządzenie</th>
+        <th>Usterka</th>
+        <th>Kwota</th>
+        <th>Data wizyty</th>
+        <th>Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for z in zlecenia %}
+      <tr>
+        <td>{{ z[1] }}</td>
+        <td>{{ z[2] }}</td>
+        <td>{{ z[3] }}</td>
+        <td>{{ z[4] }}</td>
+        <td>{{ z[5] }}</td>
+        <td>{{ z[6] }} zł</td>
+        <td>{{ z[7] }}</td>
+        <td class="actions">
+          <a href="/api/rachunek/{{ z[0] }}" class="btn pdf" target="_blank">📄 PDF</a>
+          <a href="/api/wyslij-email/{{ z[0] }}" class="btn email">✉️ Email</a>
+          <a href="/api/wyslij-sms/{{ z[0] }}" class="btn sms">📱 SMS</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </body>
 </html>
