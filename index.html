@@ -1,66 +1,118 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Agent AGD – Naprawa AGD Gliwice</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Serwisowy AGD</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f6f9; color: #222; }
-    header { background: #001f4d; color: white; padding: 60px 20px 40px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: relative; }
-    header img { height: 80px; margin-bottom: 20px; }
-    header h1 { font-size: 2.8em; margin-bottom: 10px; }
-    header p { font-size: 1.2em; margin: 0.3em 0; }
-    .phone { color: #ffcc00; font-weight: bold; text-decoration: none; }
-    .container { max-width: 1100px; margin: auto; padding: 30px 20px; }
-    section { background: white; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); padding: 40px; margin-bottom: 40px; }
-    h2 { color: #001f4d; margin-bottom: 20px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-    th, td { border: 1px solid #ccc; padding: 14px; text-align: left; font-size: 1.05em; }
-    th { background: #f0f2f5; }
-    form input, form textarea, form button { width: 100%; padding: 14px; margin-top: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; }
-    form button { background: #003366; color: white; border: none; cursor: pointer; font-weight: bold; }
-    form button:hover { background: #002244; }
-    .gallery img { max-width: 240px; border-radius: 12px; margin: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
-    .gallery img:hover { transform: scale(1.05); }
-    .gallery { display: flex; flex-wrap: wrap; justify-content: center; }
-    .opinie { font-style: italic; margin: 10px 0; border-left: 4px solid #003366; padding-left: 14px; color: #444; background: #f9f9f9; border-radius: 6px; }
-    footer { text-align: center; padding: 30px; color: #888; font-size: 0.95em; background: #f1f3f5; border-top: 2px solid #ddd; }
-    .grid-icons { display: flex; justify-content: space-between; flex-wrap: wrap; }
-    .grid-icons div { flex: 1 1 200px; text-align: center; margin: 10px; }
-    .grid-icons img { height: 64px; margin-bottom: 10px; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      margin-top: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    .actions a {
+      margin-right: 5px;
+      padding: 6px 10px;
+      border-radius: 4px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+    .pdf { background-color: #3498db; }
+    .email { background-color: #2ecc71; }
+    .sms { background-color: #7f8c8d; }
   </style>
 </head>
 <body>
+  <h1>📋 Panel Zgłoszeń AGD</h1>
+  <form method="POST" action="/api/zgloszenie">
+    <input type="text" name="imie" placeholder="Imię klienta" required />
+    <input type="text" name="telefon" placeholder="Telefon" required />
+    <input type="text" name="adres" placeholder="Adres" required />
+    <input type="text" name="urzadzenie" placeholder="Typ urządzenia" required />
+    <input type="text" name="usterka" placeholder="Opis usterki" required />
+    <input type="email" name="email" placeholder="Adres e-mail (opcjonalnie)" />
+    <input type="text" name="kwota" placeholder="Kwota (np. 300)" />
+    <input type="date" name="data_wizyty" required />
+    <button type="submit">➕ Dodaj zgłoszenie</button>
+  </form>
 
-<header>
-  <img src="https://img.icons8.com/ios-filled/100/ffffff/maintenance.png" alt="Logo Agent AGD" />
-  <h1>Agent AGD</h1>
-  <p>Naprawa pralek, zmywarek, suszarek, piekarników – szybko, uczciwie i lokalnie</p>
-  <p>Zadzwoń lub wyślij SMS: <a class="phone" href="tel:510506496">510-506-496</a></p>
-</header>
-
-<div class="container">
-
-  <section>
-    <h2>Cennik usług</h2>
-    <table>
-      <tr><th>Usługa</th><th>Cena</th><th>Opis</th></tr>
-      <tr><td>Diagnoza + dojazd</td><td>120 zł</td><td>Wliczona w koszt naprawy, jeśli wykonana</td></tr>
-      <tr><td>Naprawa pralki</td><td>do 250 zł</td><td>Wymiana łożysk, pompy, elektrozaworu</td></tr>
-      <tr><td>Naprawa zmywarki</td><td>do 250 zł</td><td>Problemy z odpływem, elektroniką, grzaniem</td></tr>
-      <tr><td>Naprawa suszarki</td><td>do 250 zł</td><td>Czyszczenie, wymiana czujników, grzałek</td></tr>
-      <tr><td>Naprawa piekarnika</td><td>od 100 zł</td><td>Grzałka, zegar, termostat itd</td></tr>
-      <tr><td>Hydraulika</td><td>od 100 zł</td><td>Uszczelki, zawory, podłączenia – indywidualnie</td></tr>
-      <tr><td>Dalszy dojazd</td><td>+30 zł</td><td>Dotyczy dalszych lokalizacji</td></tr>
-    </table>
-  </section>
-
-</div>
-
-<footer>
-  © 2025 Agent AGD – Gliwice. Działalność nierejestrowana. Rachunek na życzenie. Nie jestem płatnikiem VAT.
-</footer>
-
+  <table>
+    <thead>
+      <tr>
+        <th>Imię</th>
+        <th>Telefon</th>
+        <th>Adres</th>
+        <th>Urządzenie</th>
+        <th>Usterka</th>
+        <th>Kwota</th>
+        <th>Data wizyty</th>
+        <th>Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for z in zlecenia %}
+      <tr>
+        <td>{{ z[1] }}</td>
+        <td>{{ z[2] }}</td>
+        <td>{{ z[3] }}</td>
+        <td>{{ z[4] }}</td>
+        <td>{{ z[5] }}</td>
+        <td>{{ z[6] }} zł</td>
+        <td>{{ z[7] }}</td>
+        <td class="actions">
+          <a href="/api/rachunek/{{ z[0] }}" class="pdf" target="_blank">PDF</a>
+          <a href="/api/wyslij-email/{{ z[0] }}" class="email">Email</a>
+          <a href="/api/wyslij-sms/{{ z[0] }}" class="sms">SMS</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </body>
 </html>
