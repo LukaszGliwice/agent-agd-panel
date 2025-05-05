@@ -1,30 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>Rachunek AGD</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        h1 { color: #1e88e5; }
-        .info { margin-top: 20px; }
-        .legal { margin-top: 40px; font-size: 0.9em; color: #555; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Rachunek {{ numer }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    h1 { text-align: center; color: #2c3e50; }
+    table { width: 100%; border-collapse: collapse; margin-top: 2em; }
+    td, th { padding: 10px; border: 1px solid #ccc; }
+    .footer { margin-top: 2em; font-size: 0.9em; color: #555; }
+  </style>
 </head>
 <body>
-    <h1>Rachunek nr {{ numer }}</h1>
-    <div class="info">
-        <p><strong>Data:</strong> {{ data }}</p>
-        <p><strong>Klient:</strong> {{ imie }} – {{ telefon }}</p>
-        <p><strong>Adres:</strong> {{ adres }}</p>
-        <p><strong>Sprzęt:</strong> {{ urzadzenie }}</p>
-        <p><strong>Opis usterki:</strong> {{ usterka }}</p>
-        <p><strong>Kwota:</strong> {{ kwota }} zł</p>
-    </div>
-    <div class="legal">
-        Rachunek wystawiony w ramach działalności nierejestrowanej.<br>
-        Zgodnie z art. 5 ustawy Prawo przedsiębiorców. Sprzedawca nie jest płatnikiem VAT.<br>
-        Rachunek wystawiany wyłącznie na życzenie klienta.
-    </div>
+  <h1>Rachunek nr {{ numer }}</h1>
+
+  <p><strong>Data:</strong> {{ data }}</p>
+  <p><strong>Klient:</strong> {{ imie }}</p>
+  <p><strong>Telefon:</strong> {{ telefon }}</p>
+  <p><strong>Adres:</strong> {{ adres }}</p>
+
+  <table>
+    <tr>
+      <th>Usługa</th>
+      <th>Opis</th>
+      <th>Kwota</th>
+    </tr>
+    <tr>
+      <td>Naprawa AGD</td>
+      <td>{{ urzadzenie }} – {{ usterka }}</td>
+      <td>{{ kwota }} zł</td>
+    </tr>
+  </table>
+
+  <p class="footer">
+    Działalność nierejestrowana. Nie jestem płatnikiem VAT. Rachunek wystawiony zgodnie z art. 5 ustawy Prawo przedsiębiorców.
+  </p>
+
+  <p class="footer">
+    Agent AGD – Gliwice<br>
+    Kontakt: 510-506-496
+  </p>
 </body>
 </html>
