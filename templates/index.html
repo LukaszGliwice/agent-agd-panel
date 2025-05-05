@@ -2,136 +2,104 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Agent AGD – Panel Zgłoszeń</title>
+  <title>Panel Serwisowy AGD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f2f5;
-      padding: 20px;
-      color: #2c3e50;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1a252f;
-    }
-    form {
-      background: white;
-      max-width: 800px;
-      margin: 0 auto 30px;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-    form input, form button {
-      padding: 12px;
-      margin: 10px 0;
-      width: 100%;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1em;
-    }
-    form button {
-      background-color: #27ae60;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    form button:hover {
-      background-color: #1e8449;
-    }
-    table {
-      width: 100%;
-      background: white;
-      border-collapse: collapse;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    thead {
-      background-color: #34495e;
-      color: white;
-    }
-    th, td {
-      padding: 14px;
-      text-align: left;
-      border-bottom: 1px solid #eee;
-    }
-    tr:hover {
-      background-color: #f9f9f9;
-    }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .btn {
-      padding: 8px 14px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.9em;
-      color: white;
-      transition: 0.2s;
-    }
-    .btn.pdf { background: #3498db; }
-    .btn.email { background: #2ecc71; }
-    .btn.sms { background: #7f8c8d; }
-    .btn:hover { opacity: 0.9; }
-    @media (max-width: 768px) {
-      th, td { font-size: 0.85em; padding: 10px; }
-      .actions { flex-direction: column; gap: 5px; }
-    }
-  </style>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
-<body>
-  <h1>📋 Agent AGD – Panel Zgłoszeń</h1>
+<body class="bg-light">
+  <div class="container my-5">
+    <h1 class="text-center mb-4">📋 Panel Zgłoszeń AGD</h1>
 
-  <form method="POST" action="/api/zgloszenie">
-    <input type="text" name="imie" placeholder="Imię klienta" required />
-    <input type="text" name="telefon" placeholder="Telefon" required />
-    <input type="text" name="adres" placeholder="Adres" required />
-    <input type="text" name="urzadzenie" placeholder="Typ urządzenia" required />
-    <input type="text" name="usterka" placeholder="Opis usterki" required />
-    <input type="email" name="email" placeholder="Adres e-mail (opcjonalnie)" />
-    <input type="text" name="kwota" placeholder="Kwota (np. 300)" />
-    <input type="date" name="data_wizyty" required />
-    <button type="submit">➕ Dodaj zgłoszenie</button>
-  </form>
+    <!-- FORMULARZ -->
+    <div class="card shadow-sm mb-5">
+      <div class="card-body">
+        <form method="POST" action="/api/zgloszenie" class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Imię klienta</label>
+            <input type="text" class="form-control" name="imie" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Telefon</label>
+            <input type="text" class="form-control" name="telefon" required>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Adres</label>
+            <input type="text" class="form-control" name="adres" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Typ urządzenia</label>
+            <input type="text" class="form-control" name="urzadzenie" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Opis usterki</label>
+            <input type="text" class="form-control" name="usterka" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">E-mail</label>
+            <input type="email" class="form-control" name="email">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Kwota (zł)</label>
+            <input type="text" class="form-control" name="kwota">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Data wizyty</label>
+            <input type="date" class="form-control" name="data_wizyty" required>
+          </div>
+          <div class="col-12 text-end">
+            <button type="submit" class="btn btn-success">➕ Dodaj zgłoszenie</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Imię</th>
-        <th>Telefon</th>
-        <th>Adres</th>
-        <th>Urządzenie</th>
-        <th>Usterka</th>
-        <th>Kwota</th>
-        <th>Data wizyty</th>
-        <th>Akcje</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for z in zlecenia %}
-      <tr>
-        <td>{{ z[1] }}</td>
-        <td>{{ z[2] }}</td>
-        <td>{{ z[3] }}</td>
-        <td>{{ z[4] }}</td>
-        <td>{{ z[5] }}</td>
-        <td>{{ z[6] }} zł</td>
-        <td>{{ z[7] }}</td>
-        <td class="actions">
-          <a href="/api/rachunek/{{ z[0] }}" class="btn pdf" target="_blank">📄 PDF</a>
-          <a href="/api/wyslij-email/{{ z[0] }}" class="btn email">✉️ Email</a>
-          <a href="/api/wyslij-sms/{{ z[0] }}" class="btn sms">📱 SMS</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    <!-- TABELA ZLECEŃ -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle bg-white">
+        <thead class="table-dark text-center">
+          <tr>
+            <th>Imię</th>
+            <th>Telefon</th>
+            <th>Adres</th>
+            <th>Urządzenie</th>
+            <th>Usterka</th>
+            <th>Kwota</th>
+            <th>Data wizyty</th>
+            <th>Akcje</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for z in zlecenia %}
+          <tr>
+            <td>{{ z[1] }}</td>
+            <td>{{ z[2] }}</td>
+            <td>{{ z[3] }}</td>
+            <td>{{ z[4] }}</td>
+            <td>{{ z[5] }}</td>
+            <td>{{ z[6] }} zł</td>
+            <td>{{ z[7] }}</td>
+            <td class="text-center">
+              <a href="/api/rachunek/{{ z[0] }}" class="btn btn-sm btn-outline-primary me-1" target="_blank">
+                <i class="bi bi-file-earmark-pdf"></i> PDF
+              </a>
+              <a href="/api/wyslij-email/{{ z[0] }}" class="btn btn-sm btn-outline-success me-1">
+                <i class="bi bi-envelope"></i> Email
+              </a>
+              <a href="/api/wyslij-sms/{{ z[0] }}" class="btn btn-sm btn-outline-secondary">
+                <i class="bi bi-chat-dots"></i> SMS
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
