@@ -1,95 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>Agent AGD – Naprawa pralek, zmywarek, piekarników | Gliwice</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f6f9; color: #222; }
-    header { background: #002d5c; color: white; text-align: center; padding: 60px 20px 40px; }
-    header img { height: 90px; margin-bottom: 15px; }
-    header h1 { font-size: 2.6em; margin: 0; }
-    header p { font-size: 1.2em; margin: 0.4em 0; }
-    .phone { color: #ffcc00; font-weight: bold; font-size: 1.3em; text-decoration: none; }
-
-    .container { max-width: 1100px; margin: auto; padding: 30px 20px; }
-    section { background: white; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 40px; }
-    h2 { color: #002d5c; margin-bottom: 20px; font-size: 1.8em; text-align: center; }
-
-    table { width: 100%; border-collapse: collapse; margin-top: 25px; }
-    th, td { border: 1px solid #ccc; padding: 14px; text-align: left; font-size: 1em; }
-    th { background: #f0f2f5; }
-
-    .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-    .gallery img { width: 300px; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
-    .gallery img:hover { transform: scale(1.05); }
-
-    .opinie { background: #f9f9f9; padding: 20px; border-left: 4px solid #002d5c; font-style: italic; border-radius: 8px; margin: 15px 0; }
-
-    footer { text-align: center; padding: 30px; font-size: 0.9em; background: #e6e9ec; color: #555; }
-  </style>
+  <meta charset="UTF-8" />
+  <title>Panel AGD</title>
 </head>
 <body>
-
-<header>
-  <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/100/ffffff/external-wrench-electricity-flatart-icons-outline-flatarticons.png" alt="Logo AGD" />
-  <h1>Agent AGD</h1>
-  <p>Naprawa pralek, zmywarek, suszarek, piekarników</p>
-  <p><a class="phone" href="tel:510506496">510-506-496</a></p>
-  <p>Wyślij SMS z adresem i typem sprzętu – oddzwonię szybko</p>
-</header>
-
-<div class="container">
-
-  <section>
-    <h2>Cennik usług</h2>
-    <table>
-      <tr><th>Usługa</th><th>Cena</th><th>Opis</th></tr>
-      <tr><td>Diagnoza + dojazd</td><td>120 zł</td><td>Wliczona w koszt naprawy, jeśli wykonana</td></tr>
-      <tr><td>Naprawa pralki</td><td>do 250 zł</td><td>Wymiana łożysk, pompy, elektrozaworu</td></tr>
-      <tr><td>Naprawa zmywarki</td><td>do 250 zł</td><td>Problemy z odpływem, elektroniką, grzaniem</td></tr>
-      <tr><td>Naprawa suszarki</td><td>do 250 zł</td><td>Czyszczenie, wymiana czujników, grzałek</td></tr>
-      <tr><td>Naprawa piekarnika</td><td>od 100 zł</td><td>Grzałka, zegar, termostat itd</td></tr>
-      <tr><td>Hydraulika</td><td>od 100 zł</td><td>Uszczelki, zawory, podłączenia – indywidualnie</td></tr>
-      <tr><td>Dalszy dojazd</td><td>+30 zł</td><td>Dotyczy dalszych lokalizacji</td></tr>
-    </table>
-  
-</section>
-
-  <section>
-    <h2>Umów wizytę</h2>
-    <form action="/wyslij" method="post">
-      <input type="text" name="imie" placeholder="Imię i nazwisko" required><br><br>
-      <input type="tel" name="telefon" placeholder="Telefon kontaktowy" required><br><br>
-      <input type="text" name="adres" placeholder="Adres (ulica, miasto)" required><br><br>
-      <input type="text" name="urzadzenie" placeholder="Typ sprzętu (np. pralka, zmywarka)" required><br><br>
-      <textarea name="usterka" placeholder="Opis usterki..." rows="4" required></textarea><br><br>
-      <button type="submit">Wyślij zgłoszenie</button>
-    </form>
-  </section>
-
-  <section>
-    <h2>Galeria z napraw</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/300x200?text=Pralka+naprawiona" alt="Naprawiona pralka">
-      <img src="https://via.placeholder.com/300x200?text=Moduł+zmywarki" alt="Moduł zmywarki">
-      <img src="https://via.placeholder.com/300x200?text=Piekarnik+OK" alt="Naprawiony piekarnik">
-    </div>
-  </section>
-
-  <section>
-    <h2>Opinie klientów</h2>
-    <div class="opinie">"Pełna profeska. Pralka działa jak nowa. Polecam!"</div>
-    <div class="opinie">"Szybko, uczciwie i z kontaktem bez call center. Dziękuję!"</div>
-    <div class="opinie">"Wszystko jasno i bez naciągania. Dobry fachowiec!"</div>
-  </section>
-
-</div>
-
-<footer>
-  © 2025 Agent AGD – Gliwice. Działalność nierejestrowana. Nie jestem płatnikiem VAT. Rachunek na życzenie.
-</footer>
-
+  <h1>Panel Zgłoszeń AGD</h1>
+  <form method="POST" action="/api/zgloszenie">
+    <input type="text" name="imie" placeholder="Imię klienta" required />
+    <input type="text" name="telefon" placeholder="Telefon" required />
+    <input type="text" name="adres" placeholder="Adres" required />
+    <input type="text" name="urzadzenie" placeholder="Typ urządzenia" required />
+    <input type="text" name="usterka" placeholder="Opis usterki" required />
+    <input type="text" name="kwota" placeholder="Kwota (np. 300)" />
+    <button type="submit">Dodaj zgłoszenie</button>
+  </form>
+  <hr>
+  <h2>Lista zleceń</h2>
+  <ul>
+    {% for z in zlecenia %}
+      <li>
+        {{ z[1] }} – {{ z[4] }} – {{ z[5] }} – Kwota: {{ z[6] }} zł
+        <a href="/api/rachunek/{{ z[0] }}" target="_blank">Wystaw rachunek</a>
+      </li>
+    {% endfor %}
+  </ul>
 </body>
 </html>
