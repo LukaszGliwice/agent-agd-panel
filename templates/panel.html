@@ -3,10 +3,10 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Panel AGD</title>
+  <title>Panel Agent AGD</title>
 </head>
 <body>
-  <h1>Panel Agent AGD</h1>
+  <h1>Panel zgłoszeń</h1>
   <table border="1">
     <tr>
       <th>ID</th><th>Imię</th><th>Telefon</th><th>Adres</th><th>Sprzęt</th><th>Usterka</th><th>Status</th><th>Akcja</th>
@@ -23,9 +23,9 @@
       <td>
         <form action="/zgloszenie/{{ z[0] }}/status" method="post">
           <select name="status">
-            <option value="nowe">Nowe</option>
-            <option value="w trakcie">W trakcie</option>
-            <option value="zakończone">Zakończone</option>
+            <option value="nowe" {% if z[6]=='nowe' %}selected{% endif %}>Nowe</option>
+            <option value="w trakcie" {% if z[6]=='w trakcie' %}selected{% endif %}>W trakcie</option>
+            <option value="zakończone" {% if z[6]=='zakończone' %}selected{% endif %}>Zakończone</option>
           </select>
           <button type="submit">Zmień</button>
         </form>
