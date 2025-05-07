@@ -3,89 +3,55 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Agent AGD – Naprawa Gliwice</title>
+  <title>Agent AGD – Naprawa AGD Gliwice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/static/favicon.png">
   <link rel="stylesheet" href="/static/style.css">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f2f4f6;
-      color: #333;
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f4f6f9; color: #333; }
+    header {
+      background: url('/static/naprawa.jpg') center/cover no-repeat;
+      color: white; padding: 120px 20px; text-align: center;
+      box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
     }
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('/static/naprawa.jpg') center/cover no-repeat;
-      height: 100vh;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .hero h1 {
-      font-size: 3.5em;
-      margin-bottom: 0.3em;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    }
-    .hero p {
-      font-size: 1.3em;
-      margin-bottom: 1.5em;
-    }
-    .cta-button {
-      background: #007BFF;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    .section {
-      max-width: 900px;
-      margin: -60px auto 50px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-      padding: 40px 20px;
-    }
-    h2 {
-      color: #007BFF;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #007BFF;
-      padding-bottom: 10px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      text-align: left;
-      padding: 12px;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background: #f4f4f4;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.85em;
-      color: #888;
-      margin: 60px 20px 20px;
-    }
+    header h1 { font-size: 3.5em; margin: 0; }
+    header p { font-size: 1.3em; margin-top: 10px; }
+    .btn { background: #007BFF; color: white; padding: 12px 25px; border: none; border-radius: 8px; text-decoration: none; font-size: 1em; }
+
+    .section { max-width: 960px; margin: 50px auto; background: white; border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1); padding: 30px 25px; }
+
+    h2 { color: #007BFF; border-bottom: 2px solid #007BFF; padding-bottom: 10px; margin-bottom: 25px; }
+
+    .cennik table { width: 100%; border-collapse: collapse; }
+    .cennik th, .cennik td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+    .cennik th { background: #f7f7f7; }
+
+    .o-mnie p { line-height: 1.6; }
+    .galeria img { width: 100px; margin: 8px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+    .opinie blockquote { margin: 0 0 20px; background: #f9f9f9; padding: 15px 20px; border-left: 5px solid #007BFF; }
+
+    form input, form textarea { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; }
+    form button { padding: 10px 20px; background: #007BFF; color: white; border: none; border-radius: 6px; font-weight: bold; }
+
+    footer { text-align: center; font-size: 0.9em; color: #666; margin: 60px 20px 20px; }
   </style>
 </head>
 <body>
 
-<div class="hero">
+<header>
   <h1>Agent AGD</h1>
   <p>Naprawa pralek, zmywarek, suszarek, piekarników – Gliwice i okolice</p>
-  <a href="/formularz" class="cta-button">Umów wizytę</a>
+  <a href="/formularz" class="btn">Umów wizytę</a>
+</header>
+
+<div class="section o-mnie">
+  <h2>O mnie</h2>
+  <p>Nazywam się <strong>Łukasz Pawlonka</strong>. Jestem lokalnym fachowcem z Gliwic – bez pośredników, bez call center. Oferuję uczciwe podejście, szybki kontakt i naprawy na konkretnych warunkach.</p>
 </div>
 
-<div class="section">
+<div class="section cennik">
   <h2>Cennik usług</h2>
   <table>
     <tr><th>Usługa</th><th>Cena</th><th>Opis</th></tr>
@@ -99,8 +65,33 @@
   </table>
 </div>
 
+<div class="section galeria">
+  <h2>Galeria napraw</h2>
+  <img src="/static/naprawa.jpg" alt="Zdjęcie 1">
+  <img src="/static/naprawa.jpg" alt="Zdjęcie 2">
+  <img src="/static/naprawa.jpg" alt="Zdjęcie 3">
+</div>
+
+<div class="section opinie">
+  <h2>Opinie klientów</h2>
+  <blockquote>„Szybko, sprawnie i tanio. Polecam!” – Aneta K.</blockquote>
+  <blockquote>„Pełna profeska. Fachowiec z prawdziwego zdarzenia.” – Michał W.</blockquote>
+</div>
+
+<div class="section">
+  <h2>Formularz kontaktowy</h2>
+  <form method="post" action="/zgloszenie">
+    <input type="text" name="imie" placeholder="Imię" required>
+    <input type="text" name="telefon" placeholder="Numer telefonu" required>
+    <input type="text" name="adres" placeholder="Adres" required>
+    <input type="text" name="sprzet" placeholder="Typ sprzętu" required>
+    <textarea name="opis" rows="4" placeholder="Opis usterki" required></textarea>
+    <button type="submit">Wyślij zgłoszenie</button>
+  </form>
+</div>
+
 <footer>
-  © Agent AGD – lokalny fachowiec z Gliwic • Szybko • Bez pośredników • Konkretnie
+  © Agent AGD – Gliwice • Działalność nierejestrowana • tel. 510 506 496
 </footer>
 
 </body>
