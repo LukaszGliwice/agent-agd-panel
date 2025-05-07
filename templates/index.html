@@ -2,148 +2,58 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🔧 Agent AGD – Naprawa pralek, zmywarek, piekarników</title>
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <meta property="og:title" content="Agent AGD – Naprawa AGD w Gliwicach" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1604882735992-3a4f6f6c9a79?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f9fc;
-      color: #333;
-    }
-    header {
-      background: url('https://images.unsplash.com/photo-1604882735992-3a4f6f6c9a79?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center / cover;
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      text-shadow: 1px 1px 5px #000;
-    }
-    header p {
-      font-size: 1.2em;
-      text-shadow: 1px 1px 4px #000;
-    }
-    .container {
-      max-width: 720px;
-      margin: 40px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #002f5f;
-    }
-    form {
-      display: grid;
-      gap: 20px;
-    }
-    .field {
-      position: relative;
-    }
-    .field i {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      color: #888;
-    }
-    .field input,
-    .field textarea {
-      width: 100%;
-      padding: 14px 14px 14px 40px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1em;
-    }
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    button {
-      background-color: #002f5f;
-      color: white;
-      padding: 14px;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background-color: #00193a;
-    }
-    footer {
-      background-color: #eef1f5;
-      color: #555;
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9em;
-    }
-    .panel-link {
-      display: block;
-      text-align: center;
-      margin-top: 30px;
-      font-weight: bold;
-      color: #002f5f;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Agent AGD – Naprawa sprzętu domowego</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/static/favicon.png">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .hero {
+            text-align: center;
+            padding: 60px 20px 30px;
+            background: linear-gradient(145deg, #e1f1f3, #f8fdfd);
+        }
+        .hero h1 {
+            font-size: 3em;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .hero p {
+            font-size: 1.3em;
+            color: #666;
+            margin-top: 10px;
+        }
+        .hero img {
+            margin-top: 30px;
+            max-width: 320px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
-
-<header>
-  <h1><i class="fas fa-wrench"></i> Agent AGD</h1>
-  <p>Naprawa pralek, zmywarek, piekarników i suszarek – Gliwice i okolice</p>
-
-  <div style="text-align:center; margin-top:-20px;">
-    <img src="https://cdn.pixabay.com/photo/2016/10/27/22/52/washing-machine-1777981_1280.jpg"
-         alt="AGD - serwis"
-         style="max-width:90%; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.2); margin-top:20px;">
-  </div>
-</header>
-
-<div class="container">
-  <h2>Umów wizytę serwisową</h2>
-  <form method="post" action="/wyslij">
-    <div class="field">
-      <i class="fas fa-user"></i>
-      <input type="text" name="imie" placeholder="Imię i nazwisko" required />
+    <div class="hero">
+        <h1>🔧 Agent AGD</h1>
+        <p>Naprawa pralek, zmywarek, piekarników i suszarek – Gliwice i okolice</p>
+        <img src="/static/naprawa.jpg" alt="AGD – serwis urządzeń domowych">
     </div>
-    <div class="field">
-      <i class="fas fa-phone"></i>
-      <input type="tel" name="telefon" placeholder="Numer telefonu" required />
-    </div>
-    <div class="field">
-      <i class="fas fa-location-dot"></i>
-      <input type="text" name="adres" placeholder="Adres (ulica, miasto)" required />
-    </div>
-    <div class="field">
-      <i class="fas fa-tools"></i>
-      <input type="text" name="urzadzenie" placeholder="Typ sprzętu (np. pralka, zmywarka)" required />
-    </div>
-    <div class="field">
-      <i class="fas fa-pen"></i>
-      <textarea name="usterka" placeholder="Opis usterki" required></textarea>
-    </div>
-    <button type="submit">Wyślij zgłoszenie</button>
-  </form>
 
-  <a href="/panel" class="panel-link">Przejdź do panelu zgłoszeń</a>
-</div>
+    <div class="container">
+        <h2>Kontakt</h2>
+        <p><strong>Telefon:</strong> <a href="tel:510506496">510-506-496</a></p>
+        <p><strong>SMS:</strong> Wyślij adres i typ sprzętu, oddzwonię!</p>
 
-<footer>
-  © 2025 Agent AGD – Działalność nierejestrowana. Rachunki na życzenie. Nie jestem płatnikiem VAT.
-</footer>
-
+        <h2>Cennik</h2>
+        <ul>
+            <li><strong>Diagnoza + dojazd:</strong> 120 zł</li>
+            <li><strong>Naprawa pralki:</strong> do 250 zł</li>
+            <li><strong>Naprawa zmywarki:</strong> do 250 zł</li>
+            <li><strong>Naprawa suszarki:</strong> do 250 zł</li>
+            <li><strong>Naprawa piekarnika:</strong> od 100 zł</li>
+            <li><strong>Hydraulika:</strong> od 100 zł (indywidualna wycena)</li>
+            <li><strong>Dalszy dojazd:</strong> +30 zł</li>
+        </ul>
+    </div>
 </body>
 </html>
