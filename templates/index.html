@@ -3,57 +3,111 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Agent AGD – Naprawa sprzętu domowego</title>
+    <title>Agent AGD – Naprawa AGD Gliwice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/static/favicon.png">
     <link rel="stylesheet" href="/static/style.css">
     <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f9fa;
+            color: #333;
+        }
         .hero {
+            background: url('/static/naprawa.jpg') center/cover no-repeat;
+            color: white;
+            padding: 100px 20px 80px;
             text-align: center;
-            padding: 60px 20px 30px;
-            background: linear-gradient(145deg, #e1f1f3, #f8fdfd);
+            box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.4);
         }
         .hero h1 {
             font-size: 3em;
-            color: #333;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         .hero p {
-            font-size: 1.3em;
-            color: #666;
+            font-size: 1.5em;
             margin-top: 10px;
         }
-        .hero img {
-            margin-top: 30px;
-            max-width: 320px;
-            height: auto;
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px 30px;
+            margin-top: -40px;
             border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .container h2 {
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+            color: #007BFF;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #f0f0f0;
+        }
+        .contact {
+            background: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+        .contact a {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #999;
+            margin: 40px 0 20px;
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>🔧 Agent AGD</h1>
-        <p>Naprawa pralek, zmywarek, piekarników i suszarek – Gliwice i okolice</p>
-        <img src="/static/naprawa.jpg" alt="AGD – serwis urządzeń domowych">
-    </div>
 
-    <div class="container">
-        <h2>Kontakt</h2>
-        <p><strong>Telefon:</strong> <a href="tel:510506496">510-506-496</a></p>
-        <p><strong>SMS:</strong> Wyślij adres i typ sprzętu, oddzwonię!</p>
+<div class="hero">
+    <h1>🔧 Agent AGD</h1>
+    <p>Naprawa pralek, zmywarek, piekarników i suszarek – Gliwice i okolice</p>
+</div>
 
-        <h2>Cennik</h2>
-        <ul>
-            <li><strong>Diagnoza + dojazd:</strong> 120 zł</li>
-            <li><strong>Naprawa pralki:</strong> do 250 zł</li>
-            <li><strong>Naprawa zmywarki:</strong> do 250 zł</li>
-            <li><strong>Naprawa suszarki:</strong> do 250 zł</li>
-            <li><strong>Naprawa piekarnika:</strong> od 100 zł</li>
-            <li><strong>Hydraulika:</strong> od 100 zł (indywidualna wycena)</li>
-            <li><strong>Dalszy dojazd:</strong> +30 zł</li>
-        </ul>
+<div class="container">
+    <h2>Usługi i cennik</h2>
+    <table>
+        <tr><th>Usługa</th><th>Cena</th><th>Opis</th></tr>
+        <tr><td>Diagnoza + dojazd</td><td>120 zł</td><td>Wliczona w koszt naprawy, jeśli wykonana</td></tr>
+        <tr><td>Naprawa pralki</td><td>do 250 zł</td><td>Wymiana łożysk, pompy, elektrozaworu</td></tr>
+        <tr><td>Naprawa zmywarki</td><td>do 250 zł</td><td>Problemy z odpływem, elektroniką, grzaniem</td></tr>
+        <tr><td>Naprawa suszarki</td><td>do 250 zł</td><td>Czyszczenie, wymiana czujników, grzałek</td></tr>
+        <tr><td>Naprawa piekarnika</td><td>od 100 zł</td><td>Grzałka, zegar, termostat itd</td></tr>
+        <tr><td>Hydraulika</td><td>od 100 zł</td><td>Uszczelki, zawory, podłączenia – indywidualnie</td></tr>
+        <tr><td>Dalszy dojazd</td><td>+30 zł</td><td>Dotyczy dalszych lokalizacji</td></tr>
+    </table>
+
+    <div class="contact">
+        <p>Zadzwoń lub wyślij SMS:</p>
+        <p><a href="tel:510506496">510 506 496</a></p>
+        <p><small>Wyślij adres i typ sprzętu – oddzwonię</small></p>
     </div>
+</div>
+
+<footer>
+    Agent AGD – lokalny fachowiec, Gliwice i okolice • Bez pośredników • Kontakt bezpośredni
+</footer>
+
 </body>
 </html>
