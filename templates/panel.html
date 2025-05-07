@@ -1,37 +1,7 @@
 
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <title>Panel Agent AGD</title>
-</head>
-<body>
-  <h1>Panel zgłoszeń</h1>
-  <table border="1">
-    <tr>
-      <th>ID</th><th>Imię</th><th>Telefon</th><th>Adres</th><th>Sprzęt</th><th>Usterka</th><th>Status</th><th>Akcja</th>
-    </tr>
-    {% for z in zgloszenia %}
-    <tr>
-      <td>{{ z[0] }}</td>
-      <td>{{ z[1] }}</td>
-      <td>{{ z[2] }}</td>
-      <td>{{ z[3] }}</td>
-      <td>{{ z[4] }}</td>
-      <td>{{ z[5] }}</td>
-      <td>{{ z[6] }}</td>
-      <td>
-        <form action="/zgloszenie/{{ z[0] }}/status" method="post">
-          <select name="status">
-            <option value="nowe" {% if z[6]=='nowe' %}selected{% endif %}>Nowe</option>
-            <option value="w trakcie" {% if z[6]=='w trakcie' %}selected{% endif %}>W trakcie</option>
-            <option value="zakończone" {% if z[6]=='zakończone' %}selected{% endif %}>Zakończone</option>
-          </select>
-          <button type="submit">Zmień</button>
-        </form>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
-</body>
-</html>
+<h1>Panel zleceń</h1>
+<ul>
+{% for z in zlecenia %}
+  <li>{{ z[1] }} – {{ z[2] }} – {{ z[3] }} – {{ z[4] }}</li>
+{% endfor %}
+</ul>
