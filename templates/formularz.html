@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Umów wizytę – Agent AGD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/static/favicon.png">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f2f4f8;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background: white;
+      padding: 30px 40px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+    h1 {
+      color: #007BFF;
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+    button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .info {
+      font-size: 0.9em;
+      color: #666;
+      margin-top: -15px;
+      margin-bottom: 20px;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8em;
+      color: #888;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Umów wizytę</h1>
+  <p class="info">Wypełnij formularz, a oddzwonię z potwierdzeniem terminu. Możesz też wysłać SMS.</p>
+  <form method="post" action="/zgloszenie">
+    <label for="imie">Imię</label>
+    <input type="text" id="imie" name="imie" required>
+
+    <label for="telefon">Numer telefonu</label>
+    <input type="text" id="telefon" name="telefon" required>
+
+    <label for="adres">Adres</label>
+    <input type="text" id="adres" name="adres" required>
+
+    <label for="sprzet">Typ sprzętu</label>
+    <input type="text" id="sprzet" name="sprzet" required>
+
+    <label for="opis">Opis usterki</label>
+    <textarea id="opis" name="opis" rows="5" required></textarea>
+
+    <button type="submit">Wyślij zgłoszenie</button>
+  </form>
+</div>
+
+<footer>
+  Agent AGD – szybka naprawa AGD • tel. 510 506 496
+</footer>
+
+</body>
+</html>
