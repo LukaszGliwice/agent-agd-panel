@@ -5,95 +5,33 @@
   <meta charset="UTF-8">
   <title>Umów wizytę – Agent AGD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/static/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #eef2f5;
-      color: #333;
-    }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
     .container {
-      max-width: 600px;
-      margin: 60px auto;
-      background: white;
-      padding: 35px 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
-    h1 {
-      font-size: 2em;
-      color: #007BFF;
-      text-align: center;
-      margin-bottom: 15px;
-    }
-    .subtitle {
-      font-size: 0.95em;
-      color: #777;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    label {
-      display: block;
-      font-weight: 600;
-      margin: 15px 0 5px;
-    }
+    h1 { color: #007BFF; text-align: center; }
+    form { display: flex; flex-direction: column; }
+    label { margin-top: 10px; font-weight: bold; }
     input, textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1em;
-      background: #fafafa;
-      transition: border 0.2s;
-    }
-    input:focus, textarea:focus {
-      border-color: #007BFF;
-      outline: none;
+      padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;
     }
     button {
-      width: 100%;
-      background: #007BFF;
-      color: white;
-      border: none;
-      padding: 14px;
-      font-size: 1em;
-      margin-top: 25px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      margin-top: 20px; padding: 15px; background: #007BFF; color: white;
+      border: none; border-radius: 5px; cursor: pointer; font-size: 16px;
     }
-    button:hover {
-      background: #0056b3;
-    }
-    .info {
-      margin-top: 30px;
-      font-size: 0.85em;
-      color: #999;
-      text-align: center;
-    }
-    @media (max-width: 640px) {
-      .container {
-        margin: 30px 15px;
-        padding: 25px;
-      }
-    }
+    button:hover { background: #0056b3; }
   </style>
 </head>
 <body>
-
 <div class="container">
   <h1>Umów wizytę</h1>
-  <p class="subtitle">Wypełnij formularz, a oddzwonię z potwierdzeniem terminu. Możesz też wysłać SMS na <strong>510 506 496</strong>.</p>
-
   <form method="post" action="/zgloszenie">
     <label for="imie">Imię</label>
     <input type="text" id="imie" name="imie" required>
 
-    <label for="telefon">Numer telefonu</label>
+    <label for="telefon">Telefon</label>
     <input type="text" id="telefon" name="telefon" required>
 
     <label for="adres">Adres</label>
@@ -107,11 +45,6 @@
 
     <button type="submit">Wyślij zgłoszenie</button>
   </form>
-
-  <div class="info">
-    Agent AGD – Twoje AGD w dobrych rękach. Działalność nierejestrowana, rachunki na życzenie.
-  </div>
 </div>
-
 </body>
 </html>
